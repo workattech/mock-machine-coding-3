@@ -67,4 +67,4 @@ Please go through our article on '<a href="https://workat.tech/machine-coding/ar
 ## Contact us
 If you need any help regarding this event:
 - Comment on <a href="https://workat.tech/community" target="_blank">work@tech interview prep group</a>
-- Ping us on <a href="m.me/workattech" target="_blank">messenger</a>
+- Ping us on <a href="https://m.me/workattech" target="_blank">messenger</a>
