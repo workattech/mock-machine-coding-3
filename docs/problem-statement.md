@@ -56,7 +56,7 @@ A project management application (like Trello) is where you can manage your proj
 - SHOW should print all the boards with all the lists inside them and all the cards inside all the lists (including all the attributes)
 - SHOW <BOARD/LIST> should print that specific entity and everything inside it (including all the attributes)
 - SHOW CARD should print all the attributes of the card
-- You can use any format to print these
+- You can use any format to print these. Printing in json is not compulsory.
 
 ## Sample Input
 ```
