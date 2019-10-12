@@ -3,7 +3,7 @@ from Trello.Models.Lists import Lists
 
 class ListService(object):
 
-    def __init__(self, boardService):
+    def __init__(self):
         self.lists = dict()
         self.boardService = None
         self.cardService = None
@@ -16,6 +16,7 @@ class ListService(object):
         listWorks = Lists(name, boardId)
         self.lists[listWorks.id] = listWorks
         self.boardService.addListInBoard(boardId, listWorks.id)
+        print "Created List: ", listWorks.id
 
     def addCardToList(self, listId, cardId):
         listWorks = self.lists[listId]
@@ -43,16 +44,16 @@ class ListService(object):
             return ""
         listWorks = self.lists[listId]
         listInfo = ""
-        listInfo += "ListID: ", listId
-        listInfo += " Name: ", listWorks.name
+        listInfo += "ListID: " +  str(listId)
+        listInfo += " Name: "+ str(listWorks.name)
         isCardsPresent = False
         cardInfo = ""
         for cardId in listWorks.cards:
             isCardsPresent = True
             if len(cardInfo) > 0:
                 cardInfo += ","
-            cardInfo += " {", self.cardService.showCardDetail(cardId), "}"
+            cardInfo += " {" +  self.cardService.showCardDetail(cardId) +  "}"
         if isCardsPresent:
-            listInfo += ", Cards: ", cardInfo
+            listInfo += ", Cards: " + cardInfo
         return listInfo
 

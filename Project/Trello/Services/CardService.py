@@ -15,6 +15,7 @@ class CardService(object):
         card = Cards(name=cardName, listId=listId)
         self.cards[card.id] = card
         self.listService.addCardToList(listId, card.id)
+        print "Created Card: ", card.id
 
     def updateCardName(self, cardId, name):
         card = self.cards[cardId]
@@ -48,10 +49,10 @@ class CardService(object):
     def showCardDetail(self, cardId):
         card = self.cards[cardId]
         cardInfo = ""
-        cardInfo += "Id: ", cardId
-        cardInfo += " Name: ", card.getName()
+        cardInfo += "Id: "+  str(cardId)
+        cardInfo += " Name: "+ str(card.getName())
         if card.getDescription():
-            cardInfo += " Description: ", card.getDescription()
+            cardInfo += " Description: " + str(card.getDescription())
         if card.getUserName():
             cardInfo += " UserName: " + card.getUserName()
         return cardInfo

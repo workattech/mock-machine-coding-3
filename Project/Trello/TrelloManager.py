@@ -7,11 +7,11 @@ from Trello.Services.CardService import CardService
 
 class TrelloManager(object):
     def __init__(self):
-        boardService = BoardService()
-        listService = ListService()
-        cardService = CardService()
+        self.boardService = BoardService()
+        self.listService = ListService()
+        self.cardService = CardService()
 
         # Initialize each of these objects in other service class.
-        boardService.setServices(listService, cardService)
-        listService.setServices(boardService, cardService)
-        cardService.setServices(boardService, listService)
+        self.boardService.setServices(self.listService, self.cardService)
+        self.listService.setServices(self.boardService, self.cardService)
+        self.cardService.setServices(self.boardService, self.listService)

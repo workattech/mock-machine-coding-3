@@ -21,6 +21,7 @@ class BoardService(object):
     def createBoard(self, name):
         board = Board(name)
         self.boards[board.id] = board
+        print "Created Board: ", board.id
 
     def updateName(self, boardId, name):
         if not self.validatePresent(boardId):
@@ -74,17 +75,17 @@ class BoardService(object):
             return
         board = self.boards[boardId]
         boardItemInfo = ""
-        boardItemInfo += "ID: ", board.id
-        boardItemInfo += ", Name: ", board.name
-        boardItemInfo += ", privacy: ", board.privacy
+        boardItemInfo += "ID: " + str( board.id )
+        boardItemInfo += ", Name: " + str( board.name )
+        boardItemInfo += ", privacy: " + str( board.privacy )
 
         listInfo = ""
         isListPresent = False
         for listId in board.lists:
             isListPresent = True
-            if len(listInfo)  > 0:
+            if len(listInfo)>0:
                 listInfo += ", "
-            listInfo += "{ ", self.listService.showListDetail(listId), " }"
+            listInfo += "{ "+ self.listService.showListDetail(listId)+ " }"
         if isListPresent:
             boardItemInfo += "Lists: ", listInfo
         # TODO List
@@ -92,14 +93,14 @@ class BoardService(object):
         membersInfo = ""
         for members in board.members:
             isMembersPresent = True
-            membersInfo += "{ Name: ", str(members), "}"
+            membersInfo += "{ Name: "+ str(members)+ "}"
         if isMembersPresent:
-            boardItemInfo += "{ members: " + membersInfo , "}"
+            boardItemInfo += "{ members: " + membersInfo + "}"
         return boardItemInfo
 
     def showBoardDetail(self):
         boardInfo = ""
         for boardId in self.boards:
-            boardInfo += "{ ",self.showBoardDetailItem(boardId), "}\n"
+            boardInfo += "{ " + self.showBoardDetailItem(boardId)+ "}\n"
         return boardInfo
 
