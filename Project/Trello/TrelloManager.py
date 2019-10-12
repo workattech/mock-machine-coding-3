@@ -15,4 +15,3 @@ class TrelloManager(object):
         boardService.setServices(listService, cardService)
         listService.setServices(boardService, cardService)
         cardService.setServices(boardService, listService)
-
