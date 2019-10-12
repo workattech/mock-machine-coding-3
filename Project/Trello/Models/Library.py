@@ -1,9 +1,11 @@
 import string
 import random
 
+import enum as enum
+
 
 class IdGenerator(object):
-    generatedIds = dict()
+    generatedIds = set()
 
     @staticmethod
     def getStringId():
@@ -14,13 +16,14 @@ class IdGenerator(object):
     @classmethod
     def generateUniqueId(cls):
         randomString = cls.getStringId()
-        while randomString in cls.generatedIds.keys():
+        while randomString in cls.generatedIds:
             randomString = cls.getStringId()
+        cls.generatedIds.add(randomString)
         return randomString
 
 
-class Access(object):
-    PRIVATE = "PRIVATE"
-    PUBLIC = "PUBLIC"
+class Access(enum.Enum):
+    PRIVATE = 1
+    PUBLIC = 2
 
 

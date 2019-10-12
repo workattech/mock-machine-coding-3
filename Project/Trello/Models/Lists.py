@@ -7,16 +7,16 @@ class Lists(object):
         self.id = IdGenerator.generateUniqueId()
         self.name = name
         self.boardId = boardId
-        self.cards = dict()
+        self.cards = set()
 
     def setName(self, name):
         self.name = name
 
     def addCard(self, cardId):
-        self.cards[cardId] = True
+        self.cards.add(cardId)
 
     def removeCard(self, cardId):
         if cardId not in self.cards:
             print str(cardId) + " not present in List: " + str(self.id)
             return
-        del self.cards[cardId]
+        self.cards.remove(cardId)

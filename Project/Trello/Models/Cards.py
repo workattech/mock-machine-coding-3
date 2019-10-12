@@ -2,6 +2,8 @@ from Trello.Models.Library import IdGenerator
 
 
 class Cards(object):
+    userAssigned = None  # type: String
+
     def __init__(self, name="", listId=None):
         self.id = IdGenerator.generateUniqueId()
         self.name = name
@@ -30,6 +32,4 @@ class Cards(object):
         self.userAssigned = None
 
     def getUserName(self):
-        if self.userAssigned is not None:
-            return self.userAssigned
-        return None
+        return self.userAssigned

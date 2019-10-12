@@ -1,4 +1,5 @@
 from Trello.Models.Board import Board
+from Trello.Models.Library import Access
 
 
 class BoardService(object):
@@ -33,15 +34,18 @@ class BoardService(object):
         if not self.validatePresent(boardId):
             return
         board = self.boards[boardId]
-        board.setAccessSpecifier(access)
+        accessToPass = Access.PUBLIC
+        if access == "PRIVATE":
+            accessToPass = Access.PRIVATE
+        board.setAccessSpecifier(accessToPass)
 
-    def addMemberInBoard(self, boardId, userId):
+    def addMemberToBoard(self, boardId, userId):
         if not self.validatePresent(boardId):
             return
         board = self.boards[boardId]
-        board.addMemberInBoard(userId)
+        board.addMemberToBoard(userId)
 
-    def removeMemberInBoard(self, boardId, userId):
+    def removeMemberFromBoard(self, boardId, userId):
         if not self.validatePresent(boardId):
             return
         board = self.boards[boardId]
@@ -64,7 +68,7 @@ class BoardService(object):
             return
         board = self.boards[boardId]
         for memberId in  board.members:
-            self.removeMemberInBoard(boardId, memberId)
+            self.removeMemberFromBoard(boardId, memberId)
         for listId in board.lists:
             # self.removeListFromBoard(boardId, listId)
             self.listService.deleteList(listId)

@@ -40,6 +40,7 @@ class CardService(object):
             return
         self.listService.removeCardFromList(card.listId,  cardId)
         self.listService.addCardToList(newListId, cardId)
+        card.listId = newListId
 
     def deleteCard(self, cardId):
         card = self.card[cardId]
