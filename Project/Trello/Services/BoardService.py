@@ -34,10 +34,7 @@ class BoardService(object):
         if not self.validatePresent(boardId):
             return
         board = self.boards[boardId]
-        accessToPass = Access.PUBLIC
-        if access == "PRIVATE":
-            accessToPass = Access.PRIVATE
-        board.setAccessSpecifier(accessToPass)
+        board.setAccessSpecifier(access)
 
     def addMemberToBoard(self, boardId, userId):
         if not self.validatePresent(boardId):
@@ -55,7 +52,7 @@ class BoardService(object):
         if not self.validatePresent(boardId):
             return
         board = self.boards[boardId]
-        board.addListInBoard(listId)
+        board.addListToBoard(listId)
 
     def removeListFromBoard(self, boardId, listId):
         if not self.validatePresent(boardId):
@@ -106,5 +103,5 @@ class BoardService(object):
         boardInfo = ""
         for boardId in self.boards:
             boardInfo += "{ " + self.showBoardDetailItem(boardId)+ "}\n"
-        return boardInfo
+        return boardInfo if len(boardInfo)>0 else None
 

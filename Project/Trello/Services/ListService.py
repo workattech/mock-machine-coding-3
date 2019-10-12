@@ -15,7 +15,7 @@ class ListService(object):
     def createList(self, boardId, name):
         listWorks = Lists(name, boardId)
         self.lists[listWorks.id] = listWorks
-        self.boardService.addListInBoard(boardId, listWorks.id)
+        self.boardService.addListToBoard(boardId, listWorks.id)
         print "Created List: ", listWorks.id
 
     def addCardToList(self, listId, cardId):

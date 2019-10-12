@@ -21,7 +21,7 @@ class Board(object):
     def getBoardName(self):
         return self.name
 
-    def addMemberInBoard(self, userId):
+    def addMemberToBoard(self, userId):
         self.members.add(userId)
 
     def removeMemberFromBoard(self, userId):
@@ -30,7 +30,7 @@ class Board(object):
             return
         self.members.remove(userId)
 
-    def addListInBoard(self, listId):
+    def addListToBoard(self, listId):
         self.lists.add(listId)
 
     def removeListFromBoard(self, listId):

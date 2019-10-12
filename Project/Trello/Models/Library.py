@@ -1,8 +1,6 @@
 import string
 import random
 
-import enum as enum
-
 
 class IdGenerator(object):
     generatedIds = set()
@@ -22,8 +20,8 @@ class IdGenerator(object):
         return randomString
 
 
-class Access(enum.Enum):
-    PRIVATE = 1
-    PUBLIC = 2
+class Access(object):
+    PRIVATE = "PRIVATE"
+    PUBLIC = "PUBLIC"
 
 

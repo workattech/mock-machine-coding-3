@@ -15,6 +15,16 @@ class TrelloApplication(object):
                         trelloManager.boardService.createBoard(wordsSplit[2])
                     elif wordsSplit[1] == "DELETE":
                         trelloManager.boardService.deleteBoard(wordsSplit[2])
+                    else:
+                        boardId = wordsSplit[1]
+                        if wordsSplit[2] == "name":
+                            trelloManager.boardService.updateName(boardId, wordsSplit[3])
+                        elif wordsSplit[2] == "privacy":
+                            trelloManager.boardService.updateAccess(boardId, wordsSplit[3])
+                        elif wordsSplit[2] == "ADD_MEMBER":
+                            trelloManager.boardService.addMemberToBoard(boardId, wordsSplit[3])
+                        elif wordsSplit[2] == "REMOVE_MEMBER":
+                            trelloManager.boardService.removeMemberFromBoard(boardId, wordsSplit[3])
                 elif wordsSplit[0] == "SHOW":
                     output = None
                     if len(wordsSplit) == 1:
@@ -28,7 +38,7 @@ class TrelloApplication(object):
                     else:
                         print "No such option, try again"
                     if output is None:
-                        "No Boards"
+                        print "No Boards"
                     else:
                         print output
                 elif wordsSplit[0] == "LIST":
@@ -45,6 +55,19 @@ class TrelloApplication(object):
                         trelloManager.cardService.createCard(wordsSplit[3], listId)
                     elif wordsSplit[1] == "DELETE":
                         trelloManager.cardService.deleteCard(wordsSplit[2])
+                    else:
+                        cardId = wordsSplit[1]
+                        if wordsSplit[2] == "name":
+                            name = wordsSplit[3]
+                            trelloManager.cardService.updateCardName(cardId, name)
+
+                        elif wordsSplit[2] == "description":
+                            trelloManager.cardService.updateDescription(cardId, wordsSplit[3])
+
+                        elif wordsSplit[2] == "ASSIGN":
+                            trelloManager.cardService.assignUserToCard(wordsSplit[3], cardId)
+                        elif wordsSplit[2] =="UNASSIGN":
+                            trelloManager.cardService.unAssignUserFromCard(cardId)
             except Exception as e:
                 print "Exception raised: ", e.message
 
