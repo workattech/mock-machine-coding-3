@@ -2,12 +2,15 @@ package com.soumya.projectManagement;
 
 import java.util.UUID;
 
+// Core Functions related to Board Management
 public class BoardManager {
 	
+	// Checks whether BID is valid or not
 	public static boolean isValid(String bid, StorageUtil store) {
 		return store.boards.containsKey(bid);
 	}
 	
+	// Creates new Board with given name
 	public static String createBoard(String name, StorageUtil store) {
 		String bid = UUID.randomUUID().toString().replace("-","");
 		String url = "/boards/"+bid;
@@ -15,6 +18,7 @@ public class BoardManager {
 		return bid;
 	}
 	
+	// Deletes Board with given BID
 	public static void deleteBoard(String bid, StorageUtil store) {
 		Board board = store.boards.get(bid);
 		for(CList list : board.getLists()) {
@@ -25,6 +29,7 @@ public class BoardManager {
 		store.boards.remove(bid);
 	}
 	
+	// Updates Board property
 	public static void updateBoard(String bid, String name, String privacy, StorageUtil store) {
 		Board board = store.boards.get(bid);
 		if(name!=null)
@@ -42,6 +47,7 @@ public class BoardManager {
 			}
 	}
 	
+	// Add Members to a Board
 	public static void addMember(String bid, String uid, StorageUtil store) {
 		Board board = store.boards.get(bid);
 		User user = (User) store.users.get(uid).keySet().toArray()[0];
@@ -49,6 +55,7 @@ public class BoardManager {
 		board.getMembers().add(user);
 	}
 	
+	// Removes Member form a Board
 	public static void removeMember(String bid, String uid, StorageUtil store) {
 		Board board = store.boards.get(bid);
 		User user = (User) store.users.get(uid).keySet().toArray()[0];
@@ -56,6 +63,7 @@ public class BoardManager {
 		board.getMembers().remove(user);
 	}
 	
+	// Displays Particular Board with all sub details
 	public static void showBoard(String bid, Board board, StorageUtil store) {
 		board = board==null?store.boards.get(bid):board;
 		System.out.println("BID : "+bid);

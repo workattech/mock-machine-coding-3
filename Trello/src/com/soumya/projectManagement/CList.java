@@ -3,6 +3,7 @@ package com.soumya.projectManagement;
 import java.util.ArrayList;
 import java.util.List;
 
+// Model for List
 public class CList {
 
 	private String lid, name;

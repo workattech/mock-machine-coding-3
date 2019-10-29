@@ -1,5 +1,6 @@
 package com.soumya.projectManagement;
 
+// Model for the User
 public class User {
 
 	private String name, uid, email;

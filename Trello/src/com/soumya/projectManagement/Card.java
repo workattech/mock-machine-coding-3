@@ -1,6 +1,6 @@
 package com.soumya.projectManagement;
 
-
+// Model for Card
 public class Card {
 	
 	private String cid, name, description;

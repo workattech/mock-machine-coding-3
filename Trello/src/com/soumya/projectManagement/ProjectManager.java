@@ -5,14 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// Orchestrates all the different functionalities [ Board, List, Card, User ]
 public class ProjectManager {
 	
+	// Stores all the instance data related to users, boards, cards, lists
 	private StorageUtil store;
 	
 	public ProjectManager() {
 		store = new StorageUtil();
 	}
 	
+	// Register new User
 	public void registerUser(String name, String email) {
 		++store.userCount;
 		String uid = "user"+store.userCount;
@@ -20,6 +23,7 @@ public class ProjectManager {
 		store.users.get(uid).put(new User(name, uid, email), new ArrayList<>());
 	}
 	
+	// Display all Registered Users
 	public void showAllUsers() {
 		System.out.println("ALL USERS : ");
 		for(Map<User,List<Board>> users : store.users.values()) {
@@ -27,6 +31,8 @@ public class ProjectManager {
 			System.out.println("UID :"+usr.getUid()+" Name : "+usr.getName()+" Email : "+usr.getEmail());
 		}
 	}
+	
+	//Display all the Boards and their details
 	private void showAll() {
 		if(store.boards.size()==0) {
 			System.out.println("No Boards");
@@ -36,6 +42,7 @@ public class ProjectManager {
 			BoardManager.showBoard(board.getBid(), board, store);
 	}
 
+	// Parses the Input, validates the data and calls required functions
 	public void handleRequest(String request) {
 		String req[] = request.split(" ");
 		switch(req[0].toUpperCase()) {

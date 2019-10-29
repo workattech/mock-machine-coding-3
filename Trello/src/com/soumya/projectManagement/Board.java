@@ -3,6 +3,7 @@ package com.soumya.projectManagement;
 import java.util.ArrayList;
 import java.util.List;
 
+// Model for Board
 public class Board {
 
 	private String name, bid, url;

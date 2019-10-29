@@ -3,12 +3,15 @@ package com.soumya.projectManagement;
 import java.util.HashMap;
 import java.util.UUID;
 
+//Core Functions related to List Management
 public class ListManager {
 	
+	// Checks whether LID is valid or not
 	public static boolean isValid(String lid, StorageUtil store) {
 		return store.lists.containsKey(lid);
 	}
 
+	// Creates new List with given name in specified Board
 	public static String createList(String bid, String name, StorageUtil store) {
 		String lid = UUID.randomUUID().toString().replace("-","");
 		Board board = store.boards.get(bid);
@@ -19,6 +22,7 @@ public class ListManager {
 		return lid;
 	}
 	
+	// Deletes List with given LID
 	public static void deleteList(String lid, StorageUtil store) {
 		CList list = (CList) store.lists.get(lid).keySet().toArray()[0];
 		Board board = (Board) store.lists.get(lid).values().toArray()[0];
@@ -28,11 +32,13 @@ public class ListManager {
 		board.getLists().remove(list);
 	}
 	
+	// Updates a List property
 	public static void updateList(String lid, String name, StorageUtil store) {
 		CList list = (CList) store.lists.get(lid).keySet().toArray()[0];
 		list.setName(name);
 	}
 	
+	// Display details of a List
 	public static void showList(String lid, CList list, StorageUtil store) {
 		list = list==null?(CList) store.lists.get(lid).keySet().toArray()[0]:list;
 		System.out.println("LID : "+lid);
