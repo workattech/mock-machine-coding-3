@@ -1,6 +1,11 @@
 # mock-machine-coding-3 : Trello
 
-Original Problem statement: [https://workattech.github.io/mock-machine-coding-3/](https://workattech.github.io/mock-machine-coding-3/).
+Whats working : 
+
+- SHOW
+- BOARD CREATE
+- BOARD <id> name <name>
+- BOARD <id> privacy <privacy>
 
 How to run
 
@@ -10,3 +15,4 @@ cd mock-machine-coding-3/src
 python trello.py
 ```
 
+Original Problem statement: [https://workattech.github.io/mock-machine-coding-3/](https://workattech.github.io/mock-machine-coding-3/).
