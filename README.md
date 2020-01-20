@@ -4,8 +4,8 @@ Whats working :
 
 - SHOW
 - BOARD CREATE
-- BOARD <id> name <name>
-- BOARD <id> privacy <privacy>
+- BOARD `id` name `name`
+- BOARD `id` privacy `privacy`
 
 How to run
 
