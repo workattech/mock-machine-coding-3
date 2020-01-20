@@ -1,5 +1,6 @@
-# mock-machine-coding-3
-Welcome to the 3rd Mock Machine Coding Round by [workat.tech](http://workat.tech).
+# mock-machine-coding-3 : Trello
 
-Please visit [this link](https://workattech.github.io/mock-machine-coding-3/) to participate.
+Original Problem statement: [https://workattech.github.io/mock-machine-coding-3/](https://workattech.github.io/mock-machine-coding-3/).
+
+
 
