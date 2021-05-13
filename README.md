@@ -10,5 +10,7 @@ NOTE:
 4. Sample input is present in sample_input.txt 
 
 TO RUN:
-g++ user.cpp card.cpp list.cpp board.cpp appManager.cpp driver.cpp -o trello
-./trello
+
+$> g++ user.cpp card.cpp list.cpp board.cpp appManager.cpp driver.cpp -o trello
+
+$> ./trello
