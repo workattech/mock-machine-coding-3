@@ -1,0 +1,12 @@
+package services;
+import models.*;
+
+public class ApplicationService {
+	private Application application;
+	
+	public ApplicationService(Application application) {
+		this.application = application;
+	}
+	
+	
+}

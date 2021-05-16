@@ -1,0 +1,8 @@
+package models;
+import java.util.*;
+
+public class BoardList {
+	private UUID userId;
+	private String name;
+	private List<Card> cards;
+}

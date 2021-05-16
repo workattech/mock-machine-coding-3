@@ -1,0 +1,41 @@
+package models;
+import java.util.*;
+import exceptions.*;
+
+
+public class Card {
+	private UUID id;
+	private String name;
+	private String description;
+	private User owner;
+	private BoardList list;
+	
+	public Card(String name,BoardList list)
+	{
+		this.id = UUID.randomUUID();
+		this.name = name;
+		this.list = list;
+	}
+	
+	public UUID getId() {
+		return this.id;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public void setList(BoardList newList) 
+	{
+		if(!list.getBoard().getId().equals(newList.getBoard().getId()))
+			throw new DifferentBoardException();
+	}
+}

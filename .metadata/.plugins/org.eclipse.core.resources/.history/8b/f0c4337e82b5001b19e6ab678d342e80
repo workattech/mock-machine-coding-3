@@ -1,0 +1,51 @@
+package models;
+import java.util.*;
+import exceptions.*;
+
+
+public class Card {
+	private UUID id;
+	private String name;
+	private String description;
+	private User assignee;
+	private BoardList list;
+	
+	public Card(String name,BoardList list)
+	{
+		this.id = UUID.randomUUID();
+		this.name = name;
+		this.list = list;
+	}
+	
+	public UUID getId() {
+		return this.id;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public void setList(BoardList newList) throws DifferentBoardException
+	{
+		if(list!=null && !list.getBoard().getId().equals(newList.getBoard().getId()))
+			throw new DifferentBoardException("The list can't be moved to different board.");
+		this.list = newList;
+	}
+	
+	public void setAssignee(User assignee) {
+		this.assignee = assignee;
+	}
+	
+	@Override
+	public String toString() {
+		return "";
+	}
+}

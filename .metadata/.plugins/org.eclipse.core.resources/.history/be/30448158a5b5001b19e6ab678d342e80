@@ -1,0 +1,8 @@
+package models;
+import java.util.*;
+
+public class Application {
+	private List<Board> boards;
+	private List<User> users;
+	
+}

@@ -1,0 +1,60 @@
+package services;
+import models.*;
+import java.util.*;
+import exceptions.*;
+
+public class ApplicationService {
+	private Application application;
+	
+	public ApplicationService(Application application) {
+		this.application = application;
+	}
+	
+	public boolean createBoard(String name) {
+		Board newBoard = new Board(name);
+		application.getBoards().put(newBoard.getId(),newBoard);
+		System.out.println("Created board: "+newBoard.getId());
+		return true;
+	}
+	
+	public boolean deleteBoard(UUID boardToDelete) {
+		
+	}
+	
+	public boolean createList(UUID board,String name) {
+		if(!application.getBoards().containsKey(board)) {
+			System.out.println("The board in which you are trying to create the list doesn't exists");
+			return false;
+		}
+		BoardList newList = new BoardList(name, application.getBoards().get(board));
+		application.getLists().put(newList.getId(),newList);
+		return true;
+	}
+	
+	public boolean deleteList(UUID listToDelete) throws ListNotFoundException{
+		if(!application.getLists().containsKey(listToDelete)) {
+			throw new ListNotFoundException("The list which you are trying to delete doesn't exists");
+			return false;
+		}
+	}
+	
+	public boolean createCard(UUID list,String name) throws ListNotFoundException{
+		if(!application.getLists().containsKey(list)) {
+			throw new ListNotFoundException("The list in which you are trying to create the card doesn't exists");
+			return false;
+		}
+		Card newCard = new Card(name, application.getLists().get(list));
+		application.getCards().put(newCard.getId(), newCard);
+		return true;
+	}
+	
+	public boolean deleteCard(UUID cardToDelete) throws CardNotFoundException{
+		if(!application.getCards().containsKey(cardToDelete)) {
+			throw new CardNotFoundException("The card which you are trying to delete doesn't exists");
+			return false;
+		}
+		
+	}
+	
+	public 
+}

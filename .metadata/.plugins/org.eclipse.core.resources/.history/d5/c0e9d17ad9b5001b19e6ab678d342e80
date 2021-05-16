@@ -1,0 +1,32 @@
+package models;
+import java.util.*;
+
+public class Application {
+	private List<Board> boards;
+	private List<User> users;
+	private List<BoardList> lists;
+	private List<Card> cards;
+	
+	public Application() {
+		this.boards = new ArrayList<Board>();
+		this.users = new ArrayList<User>();
+		this.lists = new ArrayList<BoardList>();
+		this.cards = new ArrayList<Card>();
+	}
+	
+	public List<Board> getBoards() {
+		return this.boards;
+	}
+	
+	public List<User> getUsers() {
+		return this.users;
+	}
+	
+	public List<BoardList> getLists() {
+		return this.lists;
+	}
+	
+	public List<Card> getCards() {
+		return this.cards;
+	}
+}

@@ -1,0 +1,31 @@
+package services;
+import java.util.*;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		ApplicationService tool= new ApplicationService();
+		
+		while(input.hasNextLine())
+		{
+			String line = input.nextLine();
+			String[] words = line.split(" ");
+			if(args[0].equals("SHOW")) {
+				
+			}
+			else if(args[0].equals("BOARD")) {
+				
+			}
+			else if(args[0].equals("LIST")) {
+				
+			}
+			else {
+				
+			}
+		}
+		input.close();
+	}
+
+}

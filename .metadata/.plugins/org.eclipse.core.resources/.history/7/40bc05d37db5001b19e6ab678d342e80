@@ -1,0 +1,18 @@
+package models;
+import java.util.*;
+
+public class Card {
+	private UUID id;
+	private String name;
+	private String description;
+	private User owner;
+	private BoardList list;
+	
+	public Card(String name,Board board)
+	{
+		this.userId = UUID.randomUUID();
+		this.name = name;
+		this.board = board;
+		this.cards = new ArrayList<Card>();
+	}
+}

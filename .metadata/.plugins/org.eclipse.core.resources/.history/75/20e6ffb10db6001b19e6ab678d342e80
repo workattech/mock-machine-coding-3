@@ -1,0 +1,44 @@
+package services;
+import java.util.*;
+
+import exceptions.BoardNotFoundException;
+
+public class Driver {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		ApplicationService tool= new ApplicationService();
+		
+		while(input.hasNextLine())
+		{
+			String line = input.nextLine();
+			String[] commands = line.split(" ");
+			int length = commands.length;
+			if(commands[0].equals("SHOW")) {
+				if(length>1)
+				{
+					if(commands[1].equals("BOARD"))
+						tool.showBoard(UUID.fromString(commands[2]));
+					else if(commands[1].equals("LIST"))
+						tool.showList(UUID.fromString(commands[2]));
+					else
+						tool.showCard(UUID.fromString(commands[2]));
+				}
+				else
+					tool.showAll();
+			}
+			else if(commands[0].equals("BOARD")) {
+				
+			}
+			else if(commands[0].equals("LIST")) {
+				
+			}
+			else {
+				
+			}
+		}
+		input.close();
+	}
+
+}

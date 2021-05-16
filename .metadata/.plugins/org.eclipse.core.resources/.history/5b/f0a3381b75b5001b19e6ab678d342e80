@@ -1,0 +1,9 @@
+import java.util.*;
+
+public class Board {
+	public UUID Id;
+	public String name;
+	public Access privacy;
+	public List<User> members;
+	public List<BoardList> lists;
+}
