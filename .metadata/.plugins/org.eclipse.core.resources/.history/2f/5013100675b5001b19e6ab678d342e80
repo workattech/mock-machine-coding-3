@@ -1,8 +1,0 @@
-import java.util.UUID;
-
-public class Board {
-	public UUID Id;
-	public String name;
-	public Access privacy;
-	
-}

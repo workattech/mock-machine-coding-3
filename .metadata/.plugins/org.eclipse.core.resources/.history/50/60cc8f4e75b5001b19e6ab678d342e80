@@ -1,7 +1,0 @@
-import java.util.UUID;
-
-public class BoardList {
-	private UUID userId;
-	private String name;
-	priavte List<Card> cards;
-}

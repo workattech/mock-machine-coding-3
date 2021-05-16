@@ -1,6 +1,0 @@
-
-public class DifferentBoardException extends Exception{
-	DifferentBoardException(String s) {
-		super(s);
-	}
-}
