@@ -14,3 +14,6 @@ TO RUN:
 $> g++ user.cpp card.cpp list.cpp board.cpp appManager.cpp driver.cpp -o trello
 
 $> ./trello
+
+TODO:
+Cmake command
